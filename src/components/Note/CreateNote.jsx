@@ -6,6 +6,7 @@ import { snackbarState } from "../../utils/state";
 import { boxStyles, iconButtonStyles, textFieldStyles } from './styles';
 
 function CreateNote(props) {
+  const [show, setShow] = useState(false)
   const [note, setNote] = useState({
     title: "",
     content: "",
@@ -34,7 +35,17 @@ function CreateNote(props) {
     }));
   }
 
+
   return (
+     !show ?
+      <div onClick={() => setShow(true)} role="button" style={{
+        width : "400px",
+        marginTop : "20px",
+        cursor :"pointer"
+      }}>
+          Add Note
+      </div>
+      :
     <Box sx={boxStyles}>
       <TextField
         size="small"
